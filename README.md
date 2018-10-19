@@ -26,7 +26,7 @@ cad_su_anon = chatkit_python_sdk.base.ChatkitAccessData(secret, instance, superu
 
 #Validating the token
 af = chatkit_python_sdk.auth_flow.AuthFlow(secret, instance)
-af.validate_token(cad_su_anon, chatkit_user_id=None, force_superuser=True)
+af.validate_token(cad_su_anon.access_token, chatkit_user_id=None, force_superuser=True)
 
 #Calling the fetch_rooms API using the superuser access token
 result = chatkit_python_sdk.rooms.fetch_rooms(cad_su_anon, include_private=True)
