@@ -10,6 +10,7 @@ The library is developed for python2.7, but should be easily adapted for python3
 
 This is a simple example that shows how to build access tokens and how to use them
 
+
 ```python
 import sys
 sys.path.append("chatkit_python_sdk")
