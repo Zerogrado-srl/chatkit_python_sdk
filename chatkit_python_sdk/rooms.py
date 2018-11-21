@@ -3,7 +3,7 @@
 import chatkit_python_sdk.base as base
 
 @base.response_extractor
-def create_room(chatkit_access_data, name, private=True, user_ids=[]):
+def create_room(chatkit_access_data, name, private=True, user_ids=[], custom_data=None):
 
     endpoint_parts = ["rooms"]
 
@@ -15,6 +15,9 @@ def create_room(chatkit_access_data, name, private=True, user_ids=[]):
 
     if(user_ids not in [None, []]):
         parameters['user_ids'] = user_ids
+    
+    if(custom_data is not None):
+        parameters['custom_data'] = custom_data
 
     return base.chatkit_request(chatkit_access_data, endpoint_parts, json_parameters=parameters, method="POST")
 
@@ -46,7 +49,7 @@ def delete_room(chatkit_access_data, room_id):
     return base.chatkit_request(chatkit_access_data, endpoint_parts, method="DELETE")
 
 @base.response_extractor
-def update_room(chatkit_access_data, room_id, name=None, private=None):
+def update_room(chatkit_access_data, room_id, name=None, private=None, custom_data=None):
     parameters = {}
 
     endpoint_parts = ['rooms', room_id]
@@ -56,6 +59,9 @@ def update_room(chatkit_access_data, room_id, name=None, private=None):
 
     if(private is not None):
         parameters['private'] = bool(private)
+    
+    if(custom_data is not None):
+        parameters['custom_data'] = custom_data
 
     return base.chatkit_request(chatkit_access_data, endpoint_parts, method="PUT", json_parameters=parameters)
 
