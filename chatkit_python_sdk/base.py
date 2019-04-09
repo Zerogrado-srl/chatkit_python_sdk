@@ -63,7 +63,7 @@ def _chatkit_request(chatkit_access_data, base_endpoint, endpoint_parts, query_p
 
 
 def chatkit_request(chatkit_access_data, endpoint_parts, query_parameters={}, json_parameters={}, headers={}, method="GET"):
-    base_chat_endpoint = chatkit_access_data.base_endpoint + "/chatkit/v2/" + chatkit_access_data.instance_id
+    base_chat_endpoint = chatkit_access_data.base_endpoint + "/chatkit/v3/" + chatkit_access_data.instance_id
     return _chatkit_request(
         chatkit_access_data=chatkit_access_data,
         base_endpoint=base_chat_endpoint,
@@ -76,7 +76,7 @@ def chatkit_request(chatkit_access_data, endpoint_parts, query_parameters={}, js
 
 
 def chatkit_auth_request(chatkit_access_data, endpoint_parts, query_parameters={}, json_parameters={}, headers={}, method="GET"):
-    base_auth_endpoint = chatkit_access_data.base_endpoint + "/chatkit_authorizer/v1/" + chatkit_access_data.instance_id
+    base_auth_endpoint = chatkit_access_data.base_endpoint + "/chatkit_authorizer/v2/" + chatkit_access_data.instance_id
     return _chatkit_request(
         chatkit_access_data=chatkit_access_data,
         base_endpoint=base_auth_endpoint,
@@ -102,7 +102,7 @@ def chatkit_file_request(chatkit_access_data, endpoint_parts, query_parameters={
     )
 
 def chatkit_cursor_request(chatkit_access_data, endpoint_parts, query_parameters={}, json_parameters={}, headers={}, method="GET", files=None):
-    base_files_endpoint = chatkit_access_data.base_endpoint + "/chatkit_cursors/v1/" + chatkit_access_data.instance_id
+    base_files_endpoint = chatkit_access_data.base_endpoint + "/chatkit_cursors/v2/" + chatkit_access_data.instance_id
     return _chatkit_request(
         chatkit_access_data=chatkit_access_data,
         base_endpoint=base_files_endpoint,
